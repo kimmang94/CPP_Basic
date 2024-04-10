@@ -1,11 +1,20 @@
 ﻿#include <iostream>
+using namespace std;
+// [변수타입] [변수명] ;
+// 변수명은 이름을 이상하게 짓지말고 어떤용도로 쓰일지 적는다. 대소문자 구분
+// Ctrl + Shift + b 빌드하기 단축키
 
-// 설명을 적을 수 있는 주석
-/*
-    여러줄 주석
-*/
+// char : 1byte
+// short : 2byte
+// int : 4byte
+// __int64 (long long) : 8byte
+int hp;
+int maxHp;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    maxHp = 200;
+    hp = maxHp;
+    cout << hp;
+    //std::cout << "Hello World!\n";
 }
