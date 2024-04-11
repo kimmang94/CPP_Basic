@@ -1,19 +1,18 @@
 ﻿#include <iostream>
 using namespace std;
 
-// 문자
-char ch;
-
-// float
-float exp;
-
-// bool
-bool isStart;
-
+int a;
+int b;
 
 int main()
 {
-	ch = 65; // 아스키코드 'A'
+	a = 10;
+	b = 20;
 
-	cout << ch;
+	cout << a + b << endl;
+	cout << b - a << endl;
+	cout << a * b << endl;
+	cout << a / b << endl;
+	cout << a % b << endl;
+
 }
