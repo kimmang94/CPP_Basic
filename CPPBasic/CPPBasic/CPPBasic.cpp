@@ -1,21 +1,21 @@
 ﻿#include <iostream>
 using namespace std;
 
-int hp;
-int b;
-
+int cnt;
 int main()
 {
-	hp = 100;
-
-	hp -= 200;
-
-	if (hp > 0)
+	cnt = 0;
+	// while
+	while (cnt < 5)
 	{
-		cout << "생존";
+		cout << "Hello World;" << endl;
+		cnt++;
 	}
-	else
+
+	// for
+	for (cnt = 0; cnt < 5; cnt++)
 	{
-		cout << "사망";
+		cout << "HelloWolrd" << endl;
 	}
+	// do-while
 }
