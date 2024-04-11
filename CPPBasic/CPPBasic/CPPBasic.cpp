@@ -1,18 +1,19 @@
 ﻿#include <iostream>
 using namespace std;
 
-// char : 1byte
-// short : 2byte
-// int : 4byte
-// __int64(long long) : 8byte
+// 문자
+char ch;
 
-int hp;
-short mp;
+// float
+float exp;
+
+// bool
+bool isStart;
+
 
 int main()
 {
-	hp = 0xF;
-	mp = 15;
+	ch = 65; // 아스키코드 'A'
 
-	cout << mp << hp; 
+	cout << ch;
 }
