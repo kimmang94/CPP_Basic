@@ -1,10 +1,14 @@
 ﻿#include <iostream>
 using namespace std;
 
-int cnt;
+//int cnt;
+
+const int SCISSORS = 0;
+const int ROCK = 1;
+const int PAPER = 2;
 int main()
 {
-	cin >> cnt;
+	//cin >> cnt;
 	// 별찍기
 #pragma region 별찍기
 	//for (int i = 0; i <= cnt; i++)
@@ -74,52 +78,52 @@ int main()
 
 		int computerValue = rand() % 3;
 
-		if (value == 0)
+		if (value == SCISSORS)
 		{
 			switch (computerValue)
 			{
-			 case 0:
-				 cout << value << computerValue << "비겼습니다" << endl;
+			 case SCISSORS:
+				 cout  << "Player : 가위 \n" << "Computer : 가위" << endl << "비겼습니다" << endl;
 				break;
-			 case 1:
-				 cout << value << computerValue << "졌습니다" << endl;
+			 case ROCK:
+				 cout  << "Player : 가위 \n" << "Computer : 바위" << endl << "졌습니다" << endl;
 				 break;
-			 case 2: 
-				 cout << value << computerValue << "이겼습니다" << endl;
+			 case PAPER: 
+				 cout  << "Player : 가위 \n" << "Computer : 보" << endl << "이겼습니다" << endl;
 				 break;
 			 default:
 				 break;
 			}
 		}
-		else if (value == 1)
+		else if (value == ROCK)
 		{
 			switch (computerValue)
 			{
-			case 0:
-				cout << value << computerValue << "이겼습니다" << endl;
+			case SCISSORS:
+				cout << "Player : 바위 \n" << "Computer : 가위" << endl << "이겼습니다" << endl;
 				break;
-			case 1:
-				cout << value << computerValue << "비겼습니다" << endl;
+			case ROCK:
+				cout << "Player : 바위 \n" << "Computer : 바위" << endl << "비겼습니다" << endl;
 				break;
-			case 2:
-				cout << value << computerValue << "졌습니다" << endl;
+			case PAPER:
+				cout << "Player : 바위 \n" << "Computer : 보" << endl << "졌습니다" << endl;
 				break;
 			default:
 				break;
 			}
 		}
-		else if (value == 2)
+		else if (value == PAPER)
 		{
 			switch (computerValue)
 			{
-			case 0:
-				cout << value << computerValue << "졌습니다" << endl;
+			case SCISSORS:
+				cout << "Player : 보 \n" << "Computer : 가위" << endl << "졌습니다" << endl;
 				break;
-			case 1:
-				cout << value << computerValue << "이겼습니다" << endl;
+			case ROCK:
+				cout << "Player : 보 \n" << "Computer : 바위" << endl << "이겼습니다" << endl;
 				break;
-			case 2:
-				cout << value << computerValue << "비겼습니다" << endl;
+			case PAPER:
+				cout << "Player : 보 \n" << "Computer : 보" << endl << "비겼습니다" << endl;
 				break;
 			default:
 				break;
