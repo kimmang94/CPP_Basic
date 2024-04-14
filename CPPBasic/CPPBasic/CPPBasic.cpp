@@ -34,6 +34,7 @@ void SelectPlayer();
 void EnterField();
 void CreateRandomMonster();
 void EnterBattle();
+void WaitForNextKey();
 
 int main()
 {
@@ -142,6 +143,9 @@ void EnterField()
 		if (input == 1)
 		{
 			EnterBattle();
+
+			if (hp == 0)
+				return;
 		}
 		else
 		{
@@ -219,8 +223,21 @@ void EnterBattle()
 		cout << "Player 의 남은 체력 : " << hp << endl;
 		if (hp == 0)
 		{
-			cout << "당신은 사망하였습니다" << endl;
+			cout << "당신은 사망하였습니다 GAME OVER" << endl;
+			WaitForNextKey();
 			return;
 		}
 	}
+}
+
+void WaitForNextKey()
+{
+	cout << "계속 하려면 1을 눌러주세요" << endl;
+	cout << "> ";
+
+	int input;
+	cin >> input;
+
+	system("cls");
+
 }
