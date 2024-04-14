@@ -15,12 +15,28 @@ PlayerType playerType;
 int hp;
 int attack;
 int defence;
+enum MonsterType
+{
+	MT_None = 0,
+	MT_Slime = 1,
+	MT_Orc = 2,
+	MT_Skeleton = 3,
+};
+
+MonsterType monsterType;
+
+int monsterHp;
+int monsterAttack;
+int monsterDefence;
 
 void EnterLobby();
 void SelectPlayer();
+void EnterField();
+void CreateRandomMonster();
 
 int main()
 {
+	srand(time(0));
 	EnterLobby();
 }
 
@@ -34,8 +50,22 @@ void EnterLobby()
 
 		// 플레이어 직업 선택
 		SelectPlayer();
-		
 
+		cout << "-------------------------" << endl;
+		cout << "[1] 필드입장 [2] 게임종료" << endl;
+		cout << "-------------------------" << endl;
+
+		int input;
+		cin >> input;
+
+		if (input == 1)
+		{
+			EnterField();
+		}
+		else
+		{
+			return;
+		}
 
 	}
 }
@@ -83,4 +113,46 @@ void SelectPlayer()
 
 	}
 	
+}
+
+void EnterField()
+{
+	cout << "-------------------------" << endl;
+	cout << "필드에 입장 했습니다!!" << endl;
+	cout << "-------------------------" << endl;
+
+	cout << "[PLAYER] HP : " << hp << "/ ATT : " << attack << "/ DEF : " << defence << endl;
+
+	// 몬스터 스폰
+	CreateRandomMonster();
+}
+
+void CreateRandomMonster()
+{
+	int randomChoice = 1 + (rand() % 3);
+
+	switch (randomChoice)
+	{
+		case MT_Slime:
+			cout << "슬라임 생성중.. [HP 30 / ATT : 2 / DEF : 0]" << endl;
+			monsterHp = 30;
+			monsterAttack = 2;
+			monsterDefence = 0;
+			monsterType = MT_Slime;
+			break;
+		case MT_Orc:
+			cout << "오크 생성중.. [HP 40 / ATT : 10 / DEF : 3]" << endl;
+			monsterHp = 40;
+			monsterAttack = 10;
+			monsterDefence = 3;
+			monsterType = MT_Orc;
+			break;
+		case MT_Skeleton:
+			cout << "스켈레톤 생성중.. [HP 80 / ATT : 15/ DEF : 5]" << endl;
+			monsterHp = 80;
+			monsterAttack = 15;
+			monsterDefence = 5;
+			monsterType = MT_Skeleton;
+			break;
+	}
 }
