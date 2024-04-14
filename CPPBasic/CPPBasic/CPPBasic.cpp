@@ -33,6 +33,7 @@ void EnterLobby();
 void SelectPlayer();
 void EnterField();
 void CreateRandomMonster();
+void EnterBattle();
 
 int main()
 {
@@ -66,6 +67,8 @@ void EnterLobby()
 		{
 			return;
 		}
+		
+
 
 	}
 }
@@ -117,14 +120,35 @@ void SelectPlayer()
 
 void EnterField()
 {
-	cout << "-------------------------" << endl;
-	cout << "필드에 입장 했습니다!!" << endl;
-	cout << "-------------------------" << endl;
+	while (true)
+	{
+		cout << "-------------------------" << endl;
+		cout << "필드에 입장 했습니다!!" << endl;
+		cout << "-------------------------" << endl;
 
-	cout << "[PLAYER] HP : " << hp << "/ ATT : " << attack << "/ DEF : " << defence << endl;
+		cout << "[PLAYER] HP : " << hp << "/ ATT : " << attack << "/ DEF : " << defence << endl;
 
-	// 몬스터 스폰
-	CreateRandomMonster();
+		// 몬스터 스폰
+		CreateRandomMonster();
+
+		cout << "-------------------------" << endl;
+		cout << "[1] 전투 [2] 도주" << endl;
+		cout << "-------------------------" << endl;
+		cout << "> ";
+
+		int input;
+		cin >> input;
+
+		if (input == 1)
+		{
+			EnterBattle();
+		}
+		else
+		{
+			break;
+		}
+	}
+
 }
 
 void CreateRandomMonster()
@@ -154,5 +178,49 @@ void CreateRandomMonster()
 			monsterDefence = 5;
 			monsterType = MT_Skeleton;
 			break;
+	}
+}
+
+void EnterBattle()
+{
+	while (true)
+	{
+		int damage = attack - monsterDefence;
+		if (damage < 0)
+		{
+			damage = 0;
+		}
+
+		// 선빵
+		monsterHp -= damage;
+		if (monsterHp < 0)
+		{
+			monsterHp = 0;
+		}
+
+		cout << "몬스터 남은 체력  : " << monsterHp << endl;
+
+		if (monsterHp == 0)
+		{
+			cout << "몬스터 처치!" << endl;
+			return;
+		}
+
+		// 반격
+
+		damage = monsterAttack - defence;
+		if (damage < 0)
+			damage = 0;
+
+		hp -= damage;
+		if (hp < 0)
+			hp = 0;
+
+		cout << "Player 의 남은 체력 : " << hp << endl;
+		if (hp == 0)
+		{
+			cout << "당신은 사망하였습니다" << endl;
+			return;
+		}
 	}
 }
