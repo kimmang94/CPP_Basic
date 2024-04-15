@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+int GTest;
+
 void Test(int)
 {
 	Test2();
