@@ -12,6 +12,15 @@ int GMap1D[MAP_SIZE * MAP_SIZE] =
 	1, 1, 1, 1, 1,
 };
 
+int GMap2D[MAP_SIZE][MAP_SIZE] =
+{
+	{1, 1, 1, 1, 1},
+	{1, 0, 0, 0, 1},
+	{1, 0, 2, 0, 1},
+	{1, 0, 0, 0, 1},
+	{1, 1, 1, 1, 1},
+};
+
 void PrintMap1D()
 {
 	SetCursorPosition(0, 0);
@@ -37,3 +46,29 @@ void PrintMap1D()
 		}
 	}
 }
+
+void PrintMap2D()
+{
+	SetCursorPosition(0, 0);
+
+	for (int y = 0; y < MAP_SIZE; y++)
+	{
+		for (int x = 0; x < MAP_SIZE; x++)
+		{
+			switch (GMap2D[y][x])
+			{
+			case 0:
+				cout << "бр";
+				break;
+			case 1:
+				cout << "бс";
+				break;
+			case 2:
+				cout << "б┌";
+				break;
+			}
+		}
+		cout << endl;
+	}
+}
+

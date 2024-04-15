@@ -18,8 +18,8 @@ int main()
 		// 로직
 		HandleMove();
 		// 출력
-
-		PrintMap1D();
+		PrintMap2D();
+		//PrintMap1D();
 	}
 }
 
