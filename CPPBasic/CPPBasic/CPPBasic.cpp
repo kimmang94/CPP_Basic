@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 using namespace std;
+<<<<<<< HEAD
 
 // Text RPG
 
@@ -252,4 +253,10 @@ void WaitForNextKey()
 
 	system("cls");
 
+=======
+
+int main()
+{
+	
+>>>>>>> origin/test
 }
