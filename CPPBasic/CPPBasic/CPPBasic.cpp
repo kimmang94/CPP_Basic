@@ -2,18 +2,18 @@
 #include "Helper.h"
 #include "Map.h"
 #include "Player.h"
+#include <Windows.h>
 using namespace std;
-
 
 
 int main()
 {
 	SetCursorOnOff(false);
-	MovePlayer(3, 2);
+	//MovePlayer(3, 2);
 	while (true)
 	{
 		// 입력
-
+		HandleKeyInput();
 		// 로직
 
 		// 출력
