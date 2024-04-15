@@ -1,9 +1,9 @@
 #include "Player.h"
 #include "Map.h"
-
+#include "Helper.h"
 int GPlayerX = 2;
 int GPlayerY = 2;
-
+bool canMove = true;
 void MovePlayer(int x, int y)
 {
 	// 범위 체크
@@ -29,5 +29,38 @@ void MovePlayer(int x, int y)
 		GPlayerY = y;
 		int index = GPlayerY * MAP_SIZE + GPlayerX;
 		GMap1D[index] = 2;
+	}
+}
+
+void HandleMove()
+{
+	// 키보드 떼고 있으면, 다음번엔 움직일 수 있다.
+	if (GMoveDir == MD_NONE)
+	{
+		canMove = true;
+		return;
+	}
+
+	// 움직일 수 있는지?
+	if (canMove == false)
+		return;
+
+	canMove = false;
+
+	switch (GMoveDir)
+	{
+	case MD_LEFT:
+		MovePlayer(GPlayerX - 1, GPlayerY);
+		break;
+	case MD_RIGHT:
+		MovePlayer(GPlayerX + 1, GPlayerY);
+		break;
+	case MD_UP:
+		MovePlayer(GPlayerX, GPlayerY - 1);
+		break;
+	case MD_DOWN:
+		MovePlayer(GPlayerX, GPlayerY + 1);
+		break;
+
 	}
 }

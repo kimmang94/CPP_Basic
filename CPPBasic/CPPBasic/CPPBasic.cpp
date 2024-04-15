@@ -6,6 +6,7 @@
 using namespace std;
 
 
+
 int main()
 {
 	SetCursorOnOff(false);
@@ -15,7 +16,7 @@ int main()
 		// 입력
 		HandleKeyInput();
 		// 로직
-
+		HandleMove();
 		// 출력
 
 		PrintMap1D();
